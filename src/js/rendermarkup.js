@@ -37,7 +37,7 @@ function renderMarkup(searchedNews) {
             <h2 class="card-title">${headline.main}</h2>
             <p class="card-info">${abstract}</p>
 	        <span class="card-date">${pub_date}</span>
-            <a href="#" class="card-url">Read more</a>
+            <a href="${web_url}" class="card-url">Read more</a>
  
             </li>`;
       }
