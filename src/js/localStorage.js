@@ -21,13 +21,13 @@ export class FavoriteStorage {
   }
 
   hasNews(item) {
-    return this.getNews().some(({ url }) => url === item);
+    return this.getNews().some(({ url }) => url === item.url);
   }
 
   removeNews(item) {
     const array = this.getNews();
     array.forEach((news, index) => {
-      if (news.url === item) {
+      if (news.url === item.url) {
         array.splice(index, 1);
       }
       return;
@@ -114,7 +114,7 @@ export class ReadStorage {
   }
 
   hasNews(item) {
-    return this.getNews().some(({ url }) => url === item);
+    return this.getNews().some(({ url }) => url === item.url);
   }
   onReadClick(e) {
     if (e.target.tagName.toLowerCase() !== 'a') {

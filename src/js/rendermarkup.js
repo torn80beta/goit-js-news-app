@@ -35,20 +35,24 @@ function renderMarkup(searchedNews) {
             return 'news';
           }
         };
-        if (index <= 8) {
+        if (index < 8) {
           const cardDate = moment(pub_date).format('DD/MM/YYYY');
           let activeClass = '';
           let activeText = '';
           let backdropRead = '';
           let readText = '';
-          if (favoriteStorage.hasNews(web_url)) {
+          if (
+            favoriteStorage.hasNews({
+              web_url,
+            })
+          ) {
             activeText = 'Remove from favorite';
             activeClass = 'favorite-button__activ';
           } else {
             activeText = 'Add to favorite';
             activeClass = 'add-to-favorite';
           }
-          if (readStorage.hasNews(web_url)) {
+          if (readStorage.hasNews({ url })) {
             backdropRead = ' opacity';
             readText = '<span class="news__read-status">Already read</span>';
           } else {
@@ -121,9 +125,9 @@ function onCardClick(e) {
       alt: multimediaAlt,
       section: category,
     };
-    // console.log(data);
-    if (favoriteStorage.hasNews(data.url)) {
-      favoriteStorage.removeNews(data.url);
+    console.log(data);
+    if (favoriteStorage.hasNews(data)) {
+      favoriteStorage.removeNews(data);
       favoriteBtn.classList.replace(
         'favorite-button__activ',
         'add-to-favorite'
