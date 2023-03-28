@@ -126,6 +126,10 @@ function onCardClick(e) {
       section: category,
     };
     console.log(data);
+    const svgMarkup =
+      '<svg class="active-news-icon" width="16" height="16" viewBox="0 0 37 32"><path style="stroke: var(--color1, #4440f7)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M10.666 2.286c-4.207 0-7.619 3.377-7.619 7.543 0 3.363 1.333 11.345 14.458 19.413 0.235 0.143 0.505 0.219 0.78 0.219s0.545-0.076 0.78-0.219c13.125-8.069 14.458-16.050 14.458-19.413 0-4.166-3.412-7.543-7.619-7.543s-7.619 4.571-7.619 4.571-3.412-4.571-7.619-4.571z"></path></svg>';
+    const svgMarkupActive =
+      '<svg class="news-icon" width="16" height="16" viewBox="0 0 37 32"><path style="stroke: var(--color1, #4440f7)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M10.666 2.286c-4.207 0-7.619 3.377-7.619 7.543 0 3.363 1.333 11.345 14.458 19.413 0.235 0.143 0.505 0.219 0.78 0.219s0.545-0.076 0.78-0.219c13.125-8.069 14.458-16.050 14.458-19.413 0-4.166-3.412-7.543-7.619-7.543s-7.619 4.571-7.619 4.571-3.412-4.571-7.619-4.571z"></path></svg>';
     if (favoriteStorage.hasNews(data)) {
       favoriteStorage.removeNews(data);
       favoriteBtn.classList.replace(
@@ -133,18 +137,14 @@ function onCardClick(e) {
         'add-to-favorite'
       );
       // favoriteBtn.textContent = 'Add to favorite';
-      favoriteBtn.innerHTML =
-        'Add to favorite <svg class=" active-news-icon" width="16" height="16" viewBox="0 0 37 32"><path style="stroke: var(--color1, #4440f7)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M10.666 2.286c-4.207 0-7.619 3.377-7.619 7.543 0 3.363 1.333 11.345 14.458 19.413 0.235 0.143 0.505 0.219 0.78 0.219s0.545-0.076 0.78-0.219c13.125-8.069 14.458-16.050 14.458-19.413 0-4.166-3.412-7.543-7.619-7.543s-7.619 4.571-7.619 4.571-3.412-4.571-7.619-4.571z"></path></svg>';
+      favoriteBtn.innerHTML = `Add to favorite ${svgMarkup}`;
     } else {
       favoriteStorage.addNews(data);
       favoriteBtn.classList.replace(
         'add-to-favorite',
         'favorite-button__activ'
       );
-      // favoriteBtn.textContent = 'Remove from favorite ';
-      // favoriteBtn.insertAdjacentHTML('beforeend', '');
-      favoriteBtn.innerHTML =
-        'Remove from favorite  <svg class="news-icon" width="16" height="16" viewBox="0 0 37 32"><path style="stroke: var(--color1, #4440f7)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M10.666 2.286c-4.207 0-7.619 3.377-7.619 7.543 0 3.363 1.333 11.345 14.458 19.413 0.235 0.143 0.505 0.219 0.78 0.219s0.545-0.076 0.78-0.219c13.125-8.069 14.458-16.050 14.458-19.413 0-4.166-3.412-7.543-7.619-7.543s-7.619 4.571-7.619 4.571-3.412-4.571-7.619-4.571z"></path></svg>';
+      favoriteBtn.innerHTML = `Remove from favorite ${svgMarkupActive}`;
     }
     return data;
   }
@@ -165,7 +165,7 @@ function onReadClick(e) {
     const headline = newsCard.querySelector('.card-title').textContent;
     newsCard.insertAdjacentHTML(
       'beforeend',
-      '<span class="news__read-status">Already read</span>'
+      '<span class="news__read-status">Already read <span class="card-icon"></span></span>'
     );
 
     const multimediaSrc = newsCard.querySelector('img').getAttribute('src');

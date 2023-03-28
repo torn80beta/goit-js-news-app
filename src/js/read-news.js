@@ -5,15 +5,18 @@ import { currentPage } from './current-page';
 const favoriteStorage = new FavoriteStorage();
 const readStorage = new ReadStorage();
 const news = readStorage.getNews();
-
+import { onThemeChange } from './switcher';
 
 oNmobileMenu();
 searchInputAnimation();
 currentPage();
+// onThemeChange();
+// onThemeChange();
+// onThemeChange();
+// setTheme();
 
 // Comment this
 // const dates = ['27/03/2023', '26/03/2023', '25/03/2023'];
-
 
 // News array for test
 // const news = [

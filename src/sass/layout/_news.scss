@@ -19,7 +19,7 @@
     grid-auto-rows: 675px;
     grid-gap: 30px;
   }
-  
+
   @media screen and (min-width: 1280px) {
     max-width: 395px;
     grid-template-columns: repeat(3, minmax(395px, 1fr));
@@ -43,16 +43,16 @@
   }
 
   @media screen and (min-width: 1280px) {
-  width: 395px;
+    width: 395px;
   }
 }
 
 .photo {
-    border-radius: 4px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .card-category {
@@ -84,7 +84,7 @@
   height: 28px;
   background: #ffffff;
   border-radius: 20px;
-
+  border: none;
   @media screen and (max-width: 767px) {
     left: 154px;
     top: 355px;
@@ -98,7 +98,7 @@
   @media screen and (min-width: 1280px) {
     left: 256px;
     top: 355px;
-}
+  }
 }
 
 .add-to-favorite__icon {
@@ -128,13 +128,13 @@
 
   @media screen and (min-width: 768px) {
     font-size: 32px;
-}
+  }
 }
 
 .card-info {
   font-style: normal;
   font-weight: 400;
-  
+
   margin-bottom: 20px;
 
   overflow: hidden;
@@ -180,7 +180,7 @@
 
   @media screen and (min-width: 1280px) {
     margin-right: 205px;
-}
+  }
 }
 
 .card-url {
@@ -205,7 +205,7 @@
 
   @media screen and (min-width: 1280px) {
     left: 296px;
-}
+  }
 }
 .favorite-button__activ {
   position: absolute;
@@ -221,6 +221,21 @@
   top: 355px;
   background: #ffffff;
   border-radius: 20px;
+  border: none;
+  @media screen and (max-width: 767px) {
+    left: 105px;
+    top: 355px;
+  }
+
+  @media screen and (min-width: 768px) {
+    left: 175px;
+    top: 355px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 215px;
+    top: 355px;
+  }
 }
 .opacity {
   opacity: 0.5;
@@ -229,16 +244,26 @@
   fill: transparent;
   stroke: #4440f7;
   position: absolute;
-  right: 12px;
+  right: 15px;
 }
 .news-icon {
   fill: #4440f7;
   position: absolute;
-  right: 12px;
+  right: 15px;
 }
 .news__read-status {
   color: #00dd73;
   position: absolute;
   top: 10px;
   right: 30px;
+}
+.card-icon {
+  display: inline-block;
+  width: 9px;
+  height: 20px;
+  border: 2.5px solid #00dd73;
+  border-top-width: 0;
+  border-left-width: 0;
+  transform: rotate(45deg);
+  margin-left: 10px;
 }
