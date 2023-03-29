@@ -42,7 +42,10 @@ class nytNewsApi {
   }
 
   async getNewsBySearchQuery(query, date) {
-    this.setDate(date);
+    if (!date == '') {
+      this.setDate(date);
+    }
+
     this.setSearchQuery(query);
     this.setSearchUrl();
     try {
