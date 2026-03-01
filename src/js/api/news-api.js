@@ -4,7 +4,6 @@ export const axiosInstance = axios.create();
 class nytNewsApi {
   constructor() {
     this.BASE_URL = 'https://api.nytimes.com/svc/';
-    // this.API_KEY = '73zrfLwsQvyOL4F8B4EmM5lidJ3O3t7Z';
     this.API_KEY = 'gGCe7Vs3RnZqlYl01le2EOLBslXfG4V7Ks2Q48fUf6ucBeBP';
     this.POP_URL = 'mostpopular/v2/viewed/1.json';
     this.SEARCH_URL = 'search/v2/articlesearch.json';
@@ -49,9 +48,7 @@ class nytNewsApi {
     try {
       const news = await axiosInstance.get(this.searchUrl).then(response => {
         if ((response.statusText = 'OK')) {
-          // console.log(this.searchUrl);
-          // console.log(response.data.response.docs);
-          console.log(response.data.response);
+          // console.log(response.data.response);
           if (Math.ceil(response.data.response.metadata.hits / 10) > 100) {
             this.totalHits = 100;
           } else {
@@ -111,7 +108,6 @@ class nytNewsApi {
     } else {
       this.date = `begin_date=${date}&end_date=${date}&`;
     }
-    // console.log(this.date);
   }
 
   getTotalHits() {
