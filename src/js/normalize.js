@@ -1,13 +1,11 @@
 import moment from 'moment/moment';
 
 export function normalizeImage(img) {
-  // console.log(img);
   if (!img) {
     return 'https://source.unsplash.com/random/300x300';
   } else if (img[2]) {
     try {
       const image = img[2].url;
-      // console.log(image.startsWith('https://www.nytimes.com/'));
       if (
         image.startsWith('https://static01.nyt.com/') ||
         image.startsWith('https://www.nytimes.com/')
@@ -21,7 +19,7 @@ export function normalizeImage(img) {
     }
   } else {
     try {
-      return img[0]['media-metadata'][2].url;
+      return img.default ? img.default.url : img[0]['media-metadata'][2].url;
     } catch {
       return 'https://source.unsplash.com/random/300x300';
     }
